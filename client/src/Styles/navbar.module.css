@@ -1,0 +1,39 @@
+.nav{
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1px whitesmoke;
+    line-height: 2px;
+}
+
+.nav .left{
+    display: flex;
+}
+.nav .left .menu{ 
+    display: flex;
+    margin-left: 40px;
+}
+
+.nav .left .menu li a {
+    color:black;
+    text-decoration: none;
+    font-size: 1.1rem; 
+    padding: 3px 16px;
+    display: block;
+    font-size: 16px;
+}
+
+.nav .left .menu li a:hover{
+    color:blueviolet;
+}
+
+.nav .right a:first-child{
+    margin-right: 5px ;
+}
+
+.logo{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:x-large;
+}
