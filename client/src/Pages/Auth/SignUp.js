@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Flex, Heading, Input, Button, Field } from "@chakra-ui/react";
+import { Box, Flex, Heading, Input, Button, Field, Alert } from "@chakra-ui/react";
 import { PasswordInput } from "../../Components/ui/password-input";
 import { useFormik } from "formik";
 import validationSchema from './validation'
+import {fetchRegister} from '../../api'
 
 export default function SignUp() {
   const formik = useFormik({
@@ -13,7 +14,13 @@ export default function SignUp() {
     },
     validationSchema,
     onSubmit: async (values, bag) => {
-      console.log(values);
+      try{
+        const registerData = await fetchRegister({email: values.email, password: values.password});
+        console.log(registerData) 
+      }
+      catch(e){
+        bag.setErrors({general: e.response.data.message})
+      }
     },
   });
   return (
@@ -23,8 +30,16 @@ export default function SignUp() {
           <Box textAlign={"center"}>
             <Heading>Sign Up</Heading>
           </Box>
+          <Box>
+            {formik.errors.general && (
+                <Alert.Root status="error" mt={4} p={4}>
+                    <Alert.Indicator /><Alert.Title>{formik.errors.general}</Alert.Title>
+                </Alert.Root>
+            )}
+          </Box>
           <Box my={5} textAlign={"left"}>
             <form onSubmit={formik.handleSubmit}>
+                
               <Field.Root required mt="4">
                 <Field.Label>
                   Email <Field.RequiredIndicator />
