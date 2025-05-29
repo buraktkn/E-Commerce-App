@@ -4,8 +4,12 @@ import { PasswordInput } from "../../Components/ui/password-input";
 import { useFormik } from "formik";
 import validationSchema from './validation'
 import {fetchRegister} from '../../api'
+import { useAuth } from "../../Contexts/AuthContext";
 
 export default function SignUp() {
+
+    const {login} = useAuth();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -16,6 +20,7 @@ export default function SignUp() {
     onSubmit: async (values, bag) => {
       try{
         const registerData = await fetchRegister({email: values.email, password: values.password});
+        login(registerData)
         console.log(registerData) 
       }
       catch(e){

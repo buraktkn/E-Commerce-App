@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "../src/Components/ui/provider"
 import {  QueryClient, QueryClientProvider, } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { AuthProvider } from './Contexts/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient({
@@ -21,7 +22,9 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Provider>
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </Provider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
