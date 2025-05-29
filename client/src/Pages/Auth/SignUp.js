@@ -1,7 +1,74 @@
-import React from 'react'
+import React from "react";
+import { Box, Flex, Heading, Input, Button, Field } from "@chakra-ui/react";
+import { PasswordInput } from "../../Components/ui/password-input";
+import { useFormik } from "formik";
+import validationSchema from './validation'
 
 export default function SignUp() {
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      passwordConfirm: "",
+    },
+    validationSchema,
+    onSubmit: async (values, bag) => {
+      console.log(values);
+    },
+  });
   return (
-    <div>SignUp Sayfası</div>
-  )
+    <div>
+      <Flex align={"center"} width={"full"} justifyContent={"center"}>
+        <Box pt={10}>
+          <Box textAlign={"center"}>
+            <Heading>Sign Up</Heading>
+          </Box>
+          <Box my={5} textAlign={"left"}>
+            <form onSubmit={formik.handleSubmit}>
+              <Field.Root required mt="4">
+                <Field.Label>
+                  Email <Field.RequiredIndicator />
+                </Field.Label>
+                <Input
+                  placeholder="Enter your email"
+                  name="email"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                />
+              </Field.Root>
+              <Field.Root required mt="4">
+                <Field.Label>
+                  Password <Field.RequiredIndicator />
+                </Field.Label>
+                <PasswordInput
+                  name="password"
+                  placeholder="Enter Your Password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                />
+              </Field.Root>
+              <Field.Root required mt="4">
+                <Field.Label>
+                  Password Confirm
+                  <Field.RequiredIndicator />
+                </Field.Label>
+                <PasswordInput
+                  name="passwordConfirm"
+                  placeholder="Confirm Your Password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.passwordConfirm}
+                />
+              </Field.Root>
+              <Button mt="4" width="full" type="submit">
+                Sign Up
+              </Button>
+            </form>
+          </Box>
+        </Box>
+      </Flex>
+    </div>
+  );
 }

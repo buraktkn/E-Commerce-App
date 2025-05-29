@@ -18,7 +18,6 @@ export default function Products() {
         hasNextPage,
         isFetching,
         isFetchingNextPage,
-        status
         } = useInfiniteQuery({
         queryKey: ["product"],
         queryFn: fetchProducts,
