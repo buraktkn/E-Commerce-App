@@ -8,7 +8,7 @@ import { useAuth } from "../../Contexts/AuthContext";
 
 export default function SignUp() {
 
-    const {login} = useAuth();
+    const {login} = useAuth(); 
 
   const formik = useFormik({
     initialValues: {
@@ -55,12 +55,13 @@ export default function SignUp() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
+                  isInvalid={formik.touched.email && formik.errors.email} 
                 />
               </Field.Root>
               <Field.Root required mt="4">
                 <Field.Label>
                   Password <Field.RequiredIndicator />
-                </Field.Label>
+                </Field.Label>  
                 <PasswordInput
                   name="password"
                   placeholder="Enter Your Password"

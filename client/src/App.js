@@ -5,6 +5,7 @@ import SignIn from './Pages/Auth/SignIn';
 import SignUp from './Pages/Auth/SignUp';
 import Products from './Pages/Products';
 import ProductDetail from './Pages/ProductDetail';
+import Profile from './Pages/Profile';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/product/:product_id" Component={ProductDetail}/>
           <Route path="/signin" Component={SignIn}/>
           <Route path="/signup" Component={SignUp}/>
+          <Route path="/profile" Component={Profile}/>
         </Routes>
         </div>
       </div>

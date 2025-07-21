@@ -30,7 +30,7 @@ export default function Navbar() {
             <Link to="/signup"><Button colorPalette="blue">Register</Button></Link>
             </>}
             {loggedIn && <>
-              <Link to="/profile"><Button colorPalette="orange">Profile</Button></Link>
+            <Link to="/profile"><Button colorPalette="black">Profile</Button></Link>
             </>}
           </div>
         </nav>
