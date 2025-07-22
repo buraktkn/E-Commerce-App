@@ -9,7 +9,7 @@ import { useBasket } from '../Contexts/BasketContext';
 export default function ProductDetail() {
 
     const {product_id} = useParams();
-    const { addToBasket } = useBasket();
+    const { addToBasket, basketItems } = useBasket();
 
     const fetchProductDetail = async () => {
         const res = await fetch(`http://localhost:4000/product/${product_id}`);
@@ -23,16 +23,16 @@ export default function ProductDetail() {
       if (isLoading) return <div>Loading...</div>;
       if (error) return <div>An error has occured: {error.message}</div>;
       //console.log(product);
-      
+       
+      const findBasketItem = basketItems.find((basketItem)=> basketItem._id === product_id)
       const images = product.photos.map(url => ({original:url}))
   return (
     <div>
-        <Button colorPalette={'pink'} onClick={()=> {
-          addToBasket(product)
-          console.log("Tıklama oldu");
-          console.log("product:", product);
-          }}>
-            Add Basket</Button>
+        <Button colorPalette={findBasketItem ? 'red' : 'green'} onClick={()=> {addToBasket(product, findBasketItem)}}>
+            {
+              findBasketItem ? 'Remove to Basket' : "Add to Basket" 
+            }
+        </Button>
         <Text as="h2" fontSize="2xl">{product.title}</Text> 
         <Text>{moment(product.createdAt).format("DD/MM/YYYY")}</Text>
         <p>{product.description}</p>
