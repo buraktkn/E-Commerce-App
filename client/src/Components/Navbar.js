@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import styles from '../Styles/navbar.module.css'
 import { Button } from "@chakra-ui/react"
 import { useAuth } from "../Contexts/AuthContext";
+import { useBasket } from '../Contexts/BasketContext';
 
 
 export default function Navbar() {
 
+  const {basketItems} = useBasket();
   const {loggedIn} = useAuth();
-  console.log("LoggedIn", loggedIn);
+  //console.log("LoggedIn", loggedIn);
+  console.log(basketItems)
   
 
   return (
@@ -26,12 +29,23 @@ export default function Navbar() {
           <div className={styles.right}>
             {!loggedIn && 
             <>
-            <Link to="/signin"><Button colorPalette="green">Log In</Button></Link> 
-            <Link to="/signup"><Button colorPalette="blue">Register</Button></Link>
+              <Link to="/signin"><Button colorPalette="green">Log In</Button></Link> 
+              <Link to="/signup"><Button colorPalette="blue">Register</Button></Link>
             </>}
-            {loggedIn && <>
-            <Link to="/profile"><Button colorPalette="black">Profile</Button></Link>
-            </>}
+            {loggedIn && 
+            <>
+              {
+                Array.isArray(basketItems) &&  basketItems.length > 0 && (
+                  <Link to="/basket">
+                    <Button colorScheme={"red"} variant={"outline"}>
+                      Basket ({basketItems.length})
+                    </Button>
+                  </Link>
+                )
+              }
+              <Link to="/profile"><Button colorPalette="black">Profile</Button></Link>
+            </>
+            }
           </div>
         </nav>
     </div>

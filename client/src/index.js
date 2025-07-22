@@ -8,6 +8,7 @@ import { Provider } from "../src/Components/ui/provider"
 import {  QueryClient, QueryClientProvider, } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { AuthProvider } from './Contexts/AuthContext';
+import { BasketProvider } from './Contexts/BasketContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient({
@@ -23,7 +24,9 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <Provider>
         <AuthProvider>
-          <App />
+          <BasketProvider>
+            <App />
+          </BasketProvider>
         </AuthProvider>
       </Provider>
       <ReactQueryDevtools initialIsOpen={false} />
