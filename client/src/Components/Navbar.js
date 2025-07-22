@@ -37,13 +37,13 @@ export default function Navbar() {
               {
                 Array.isArray(basketItems) &&  basketItems.length > 0 && (
                   <Link to="/basket">
-                    <Button colorScheme={"red"} variant={"outline"}>
+                    <Button colorPalette={"red"} variant={"outline"}>
                       Basket ({basketItems.length})
                     </Button>
                   </Link>
                 )
               }
-              <Link to="/profile"><Button colorPalette="black">Profile</Button></Link>
+              <Link to="/profile"><Button colorPalette="blue">Profile</Button></Link>
             </>
             }
           </div>
