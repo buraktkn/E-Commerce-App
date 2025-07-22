@@ -20,9 +20,11 @@ export default function SignIn() {
     validationSignIn,
     onSubmit: async (values, bag) => {
       try{
-        const loginRegisterData = await fetchLogin({email: values.email, password: values.password});
-        login(loginRegisterData)
+        const loginData = await fetchLogin({email: values.email, password: values.password});
+        login(loginData)
         navigate("/profile")
+        console.log(loginData);
+        
       }
       catch(e){
         bag.setErrors({general: e.response.data.message})
