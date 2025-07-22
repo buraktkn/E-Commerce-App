@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Flex, Heading, Input, Button, Field, Alert } from "@chakra-ui/react";
 import { PasswordInput } from "../../Components/ui/password-input";
 import { useFormik } from "formik";
-import validationSchema from './validation'
+import validationSignUp from './validationSignUp'
 import {fetchRegister} from '../../api'
 import { useAuth } from "../../Contexts/AuthContext";
 import { useNavigate } from "react-router";
@@ -18,7 +18,7 @@ export default function SignUp() {
       password: "",
       passwordConfirm: "",
     },
-    validationSchema,
+    validationSignUp,
     onSubmit: async (values, bag) => {
       try{
         const registerData = await fetchRegister({email: values.email, password: values.password});

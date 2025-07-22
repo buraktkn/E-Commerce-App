@@ -20,6 +20,12 @@ export const fetchRegister = async(input)=>{
     return data;
 }
 
+export const fetchLogin = async(input)=>{ 
+    const {data} = await axios.post(`http://localhost:4000/auth/login`, input)
+    return data;
+}
+
+
 export const fetchMe = async(input)=>{
     const {data} = await axios.get(`http://localhost:4000/auth/me`)  
     return data;
