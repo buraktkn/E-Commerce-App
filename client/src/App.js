@@ -8,6 +8,7 @@ import ProductDetail from './Pages/ProductDetail';
 import Profile from './Pages/Profile';
 import ProtectedRoute from './Pages/ProtectedRoute';
 import Basket from './Pages/Basket';
+import Error404 from './Pages/Error404';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signin" Component={SignIn}/>
           <Route path="/signup" Component={SignUp}/>
           <Route path="/basket" Component={Basket}/>
+          <Route path="*" Component={Error404}/>
           <Route element={<ProtectedRoute />}>
            <Route path="/profile" element={<Profile />} />
           </Route>
