@@ -7,6 +7,7 @@ import Products from './Pages/Products';
 import ProductDetail from './Pages/ProductDetail';
 import Profile from './Pages/Profile';
 import ProtectedRoute from './Pages/ProtectedRoute';
+import Basket from './Pages/Basket';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/product/:product_id" Component={ProductDetail}/>
           <Route path="/signin" Component={SignIn}/>
           <Route path="/signup" Component={SignUp}/>
+          <Route path="/basket" Component={Basket}/>
           <Route element={<ProtectedRoute />}>
            <Route path="/profile" element={<Profile />} />
           </Route>

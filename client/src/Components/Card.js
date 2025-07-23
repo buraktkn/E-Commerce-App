@@ -32,5 +32,5 @@ export default function Card({item}) {
             }
         </Button>
     </Box>
-  )
+  ) 
 }
