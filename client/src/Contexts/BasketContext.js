@@ -13,7 +13,12 @@ const BasketProvider =({children}) => {
         setBasketItems(filtered);
     }
 
-    const values = {basketItems, setBasketItems, addToBasket};
+    const removeFromBasket = (item_id) => {
+        const filtered = basketItems.filter((item)=>item._id !== item_id)
+        setBasketItems(filtered)
+    }
+
+    const values = {basketItems, setBasketItems, addToBasket, removeFromBasket};
     return (
         <BasketContext.Provider value={values}> {children} </BasketContext.Provider>
     );
