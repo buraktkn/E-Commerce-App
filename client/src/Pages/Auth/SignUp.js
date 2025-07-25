@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Flex, Heading, Input, Button, Field, Alert } from "@chakra-ui/react";
+import { Box, Flex, Heading, Input, Button, Alert } from "@chakra-ui/react";
+import { Field } from "@chakra-ui/react"
 import { PasswordInput } from "../../Components/ui/password-input";
 import { useFormik } from "formik";
 import validationSignUp from './validationSignUp'

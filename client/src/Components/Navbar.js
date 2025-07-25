@@ -11,7 +11,7 @@ export default function Navbar() {
   const {basketItems} = useBasket();
   const {loggedIn} = useAuth();
   //console.log("LoggedIn", loggedIn);
-  console.log(basketItems)
+  //console.log(basketItems)
   
 
   return (

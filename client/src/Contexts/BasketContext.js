@@ -21,7 +21,9 @@ const BasketProvider =({children}) => {
         setBasketItems(filtered)
     }
 
-    const values = {basketItems, setBasketItems, addToBasket, removeFromBasket};
+    const emptyBasket = () => setBasketItems([]);
+
+    const values = {basketItems, setBasketItems, addToBasket, removeFromBasket, emptyBasket};
     return (
         <BasketContext.Provider value={values}> {children} </BasketContext.Provider>
     );
