@@ -9,7 +9,7 @@ import { useBasket } from '../Contexts/BasketContext';
 export default function Navbar() {
 
   const {basketItems} = useBasket();
-  const {loggedIn} = useAuth();
+  const {loggedIn, user} = useAuth();
   //console.log("LoggedIn", loggedIn);
   //console.log(basketItems)
   
@@ -40,6 +40,13 @@ export default function Navbar() {
                     <Button colorPalette={"red"} variant={"outline"}>
                       Basket ({basketItems.length})
                     </Button>
+                  </Link>
+                )
+              }
+              {
+                user?.role === 'admin' && (
+                  <Link to={'/admin'}>
+                    <Button colorPalette={'pink'}>Admin</Button>
                   </Link>
                 )
               }
