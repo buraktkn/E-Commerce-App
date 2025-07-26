@@ -30,7 +30,7 @@ export default function Products() {
       });
       if (isLoading) return <div>Loading...</div>;
       if (error) return <div>An error has occured: {error.message}</div>;
-      console.log("Data",data);
+      //console.log("Data",data);
       
 
   return (

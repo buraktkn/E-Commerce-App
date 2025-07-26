@@ -5,14 +5,12 @@ import { Button } from "@chakra-ui/react"
 import { useAuth } from "../Contexts/AuthContext";
 import { useBasket } from '../Contexts/BasketContext';
 
-
 export default function Navbar() {
 
   const {basketItems} = useBasket();
   const {loggedIn, user} = useAuth();
   //console.log("LoggedIn", loggedIn);
   //console.log(basketItems)
-  
 
   return (
     <div>

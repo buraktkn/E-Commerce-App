@@ -9,7 +9,7 @@ import Profile from './Pages/Profile';
 import ProtectedRoute from './Pages/ProtectedRoute';
 import Basket from './Pages/Basket';
 import Error404 from './Pages/Error404';
-import Admin from './Pages/Admin';
+import Admin from './Pages/Admin/Admin';
 
 function App() {
   return (
@@ -25,10 +25,10 @@ function App() {
           <Route path="/basket" Component={Basket}/>
           <Route path="*" Component={Error404}/>
           <Route element={<ProtectedRoute />}>
-           <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
           <Route element={<ProtectedRoute admin={true} />}>
-           <Route path="/admin" element={<Admin/>}/>
+            <Route path="/admin" element={<Admin/>}/>
           </Route>
         </Routes>
         </div>
