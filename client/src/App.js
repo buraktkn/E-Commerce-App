@@ -28,8 +28,9 @@ function App() {
             <Route path="/profile" element={<Profile />} />
           </Route>
           <Route element={<ProtectedRoute admin={true} />}>
-            <Route path="/admin" element={<Admin/>}/>
+            <Route path="/admin/*" element={<Admin/>} />
           </Route>
+
         </Routes>
         </div>
       </div>
