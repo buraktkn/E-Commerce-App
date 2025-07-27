@@ -14,7 +14,15 @@ axios.interceptors.request.use(
     // Do something with request error
     return Promise.reject(error);
   });
-     
+
+
+export const fetchProductList = async({pageParam = 1 })=>{
+    const {data} = await axios.get(`http://localhost:4000/product?page=${pageParam}`)
+    return data;
+}     
+
+
+
 export const fetchRegister = async(input)=>{
     const {data} = await axios.post(`http://localhost:4000/auth/register`, input)
     return data;
@@ -47,4 +55,8 @@ export const fetchOrders = async()=>{
     const {data} = await axios.get(`http://localhost:4000/order`);
     return data;
 }
- 
+
+export const deleteProduct = async (product_id) => {
+    const {data} = await axios.delete(`http://localhost:4000/product/${product_id}`);
+    return data;
+}

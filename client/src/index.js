@@ -9,6 +9,8 @@ import {  QueryClient, QueryClientProvider, } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { AuthProvider } from './Contexts/AuthContext';
 import { BasketProvider } from './Contexts/BasketContext';
+import 'antd/dist/reset.css'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient({
