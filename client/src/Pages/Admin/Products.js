@@ -2,7 +2,7 @@ import { Text } from "@chakra-ui/react";
 import { deleteProduct, fetchProductList } from "../../api";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { useMemo } from "react";
-import { Space, Table, Tag, Popconfirm } from "antd";
+import { Table, Popconfirm } from "antd";
 import { Link } from "react-router-dom";
 
 export default function Products() {
@@ -27,7 +27,7 @@ export default function Products() {
         key: "action",
         render: (text, record) => (
           <>
-            <Link to={`/admin/product/${record._id}`}>Edit</Link>
+            <Link to={`/admin/products/${record._id}`}>Edit</Link>
             <Popconfirm
               title="Are you Sure"
               onConfirm={() => deleteMutation.mutate(record._id, {
@@ -38,7 +38,7 @@ export default function Products() {
               cancelText="No"
               placement="left"
             >
-              <a href="#" style={{marginLeft:20}}>Delete</a>
+              <a href="/silme-url" style={{marginLeft:20}}>Delete</a>
             </Popconfirm>
           </>
         ),
@@ -62,5 +62,5 @@ export default function Products() {
       </Text>
       <Table w={80} dataSource={data} columns={columns} rowKey={"_id"}></Table>
     </div>
-  );
+  ); 
 }

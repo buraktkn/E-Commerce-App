@@ -5,6 +5,7 @@ import { Box } from '@chakra-ui/react'
 import AdminHome from './AdminHome'
 import Orders from './Orders'
 import Products from './Products'
+import ProductUpdate from './ProductUpdate'
 
 
 export default function Admin() {
@@ -23,6 +24,7 @@ export default function Admin() {
                 <Route index element={<AdminHome/>}/>
                 <Route path='orders' element={<Orders/>}/>
                 <Route path='products' element={<Products/>}/>
+                <Route path='products/:product_id' element={<ProductUpdate/>}/>
             </Routes>
         </Box>
     </div>

@@ -19,7 +19,12 @@ axios.interceptors.request.use(
 export const fetchProductList = async({pageParam = 1 })=>{
     const {data} = await axios.get(`http://localhost:4000/product?page=${pageParam}`)
     return data;
-}     
+}   
+
+export const fetchProduct = async( id )=>{
+    const {data} = await axios.get(`http://localhost:4000/product/${id}`)
+    return data;
+}   
 
 
 
@@ -58,5 +63,10 @@ export const fetchOrders = async()=>{
 
 export const deleteProduct = async (product_id) => {
     const {data} = await axios.delete(`http://localhost:4000/product/${product_id}`);
+    return data;
+}
+
+export const updateProduct = async (input, product_id) => {
+    const {data} = await axios.put(`http://localhost:4000/product/${product_id}`, input)
     return data;
 }
