@@ -70,3 +70,8 @@ export const updateProduct = async (input, product_id) => {
     const {data} = await axios.put(`http://localhost:4000/product/${product_id}`, input)
     return data;
 }
+
+export const postProduct = async (input, product_id) => {
+    const {data} = await axios.post(`http://localhost:4000/product/`, input)
+    return data;
+}

@@ -1,8 +1,8 @@
-import { Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { deleteProduct, fetchProductList } from "../../api";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { useMemo } from "react";
-import { Table, Popconfirm } from "antd";
+import { Table, Popconfirm, Button } from "antd";
 import { Link } from "react-router-dom";
 
 export default function Products() {
@@ -57,9 +57,14 @@ export default function Products() {
 
   return (
     <div>
+      <Flex justifyContent={'space-between'} alignItems={'center'}>
       <Text fontSize={"2xl"} p={5}>
         Products
       </Text>
+      <Link to={'/admin/products/new'}>
+        <Button>New Product</Button>
+      </Link>
+      </Flex>
       <Table w={80} dataSource={data} columns={columns} rowKey={"_id"}></Table>
     </div>
   ); 
