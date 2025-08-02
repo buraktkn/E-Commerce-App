@@ -6,7 +6,6 @@ import { Box, Button, Input, Text, Textarea } from '@chakra-ui/react';
 import { FieldArray, Formik } from 'formik';
 import { FormControl, FormLabel } from '@chakra-ui/form-control';
 import validationSchema  from './validations';
-import { message } from 'antd';
 import { Alert } from "@chakra-ui/react"
 
 
